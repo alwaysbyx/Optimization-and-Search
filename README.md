@@ -1,11 +1,13 @@
 # Optimization-and-Search
 Implementation and visualization of optimization algorithms.  
 please add __MAthJax Plugin for Github__ to your browser.
+
+
+## Optimization    
+
 Here we are trying to solve simple quadratic problem.  
 $$\arg \text{min } \frac{1}{2}x^TQx + b^Tx$$
 $$Q \geq 0, x \in R^n$$
-
-## Optimization
 
 ---
 ### Gradient Descent
