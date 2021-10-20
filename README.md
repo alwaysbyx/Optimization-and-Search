@@ -3,8 +3,8 @@ Implementation and visualization of optimization algorithms.
 please add __MAthJax Plugin for Github__ to your browser.
 
 
-## 1. Numerical Optimization    
-------   
+# 1. Numerical Optimization    
+
 Here we are trying to solve simple quadratic problem.  
 $$\arg \text{min } \frac{1}{2}x^TQx + b^Tx$$
 $$Q \geq 0, x \in R^n$$    
@@ -12,8 +12,7 @@ $$Q \geq 0, x \in R^n$$
 The animation(left) is tested on N=10, (right) for n=2;
 
 
-### Gradient Descent   
-------   
+## Gradient Descent   
 using first-order gradient and learning rate
 
 <div align=center>
@@ -21,8 +20,7 @@ using first-order gradient and learning rate
 <img width="48%" src="images/gradient_descent_2.gif"/>
 </div>
 
-### Conjugate Descent   
-------    
+## Conjugate Descent    
 $x^{k+1} := x^k + a_kd^k$  
 using line search to compute the step size $\alpha$  
 $$a_k = \frac{\nabla f(x^k)^Td^k}{(d^k)^TQd^k}$$  
@@ -35,8 +33,7 @@ $$ \beta_k = \frac{\nabla f(x^{k+1})^T\nabla f(x^{k+1})}{\nabla f(x^k)^T\nabla f
 <img width="48%" src="images/conjugate_descent_2.gif"/>
 </div>
 
-### Newton Method   
-------   
+## Newton Method   
 using second-order gradient  
 $x^{k+1} := x^k + d^k$  
 $d^k = -[\nabla^2 f(x^k)]^{-1}\nabla f(x^k)$
@@ -46,9 +43,9 @@ $d^k = -[\nabla^2 f(x^k)]^{-1}\nabla f(x^k)$
 </div>
 
 
-## 3. Classical Search    
-------   
-### A* search   
-------  
+# 3. Classical Search    
+
+## A* search   
+
 
 
