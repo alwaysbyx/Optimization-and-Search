@@ -11,9 +11,9 @@ $$Q \geq 0, x \in R^n$$
 
 The animation(left) is tested on N=10, (right) for n=2;
 
----
-### Gradient Descent
----   
+
+### Gradient Descent   
+
 using first-order gradient and learning rate
 
 <div align=center>
@@ -21,8 +21,7 @@ using first-order gradient and learning rate
 <img width="48%" src="images/gradient_descent_2.gif"/>
 </div>
 
-### Conjugate Descent
----   
+### Conjugate Descent    
 $x^{k+1} := x^k + a_kd^k$  
 using line search to compute the step size $\alpha$  
 $$a_k = \frac{\nabla f(x^k)^Td^k}{(d^k)^TQd^k}$$  
@@ -45,10 +44,9 @@ $d^k = -[\nabla^2 f(x^k)]^{-1}\nabla f(x^k)$
 </div>
 
 
-## 3. Classical Search   
+## 3. Classical Search    
 
----   
-### A* search   
----   
+
+### A* search     
 
 
