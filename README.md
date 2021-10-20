@@ -11,4 +11,9 @@ $$Q \geq 0, x \in R^n$$
 
 ---
 ### Gradient Descent
-<div align=center><img width="60%" src="images/gradient_descent_1.gif"/></div>
+<div align=center>
+<img width="37%" src="images/gradient_descent_1.gif"/>
+<img width="48%" src="images/gradient_descent_2.gif"/>
+</div>
+
+### Conjugate Descent

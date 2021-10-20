@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import  numpy.random as random
 import matplotlib.animation as animation
 
-show_animation = True
+show_animation = False
 save = True
 if save:
     ims = []
@@ -17,28 +17,34 @@ def compute_target(x,Q,b):
 
 def gradient_descent(n,Q,b):
     rho = 1
-    x = random.randn(n,1)
+    x = 5 * random.randn(n,1)
+    x = np.array([[5],[-7.5]])
+    X = [x]
     lr = 0.01
     g = compute_gradient(x, Q, b)
     target = compute_target(x, Q, b)
     Target = [target]
     fig = plt.figure()
+    step = 0
     while np.dot(g.T,g) > rho:
+        step += 1
         x = x - lr * g
+        X.append(x)
         g = compute_gradient(x, Q, b)
         Target.append(compute_target(x, Q, b))
         if show_animation:  
             #plt.cla()
             im = plt.plot(Target,color='gray')
+            anno = plt.annotate('step:%d'%step, xy=(0.85, 0.9), xycoords='axes fraction',color='black')
             plt.axis("equal")
             plt.pause(0.001)
             if save:
-                ims.append(im)
-    if save:
-        print(len(ims))
-        ani = animation.ArtistAnimation(fig, ims, interval=50)
-        ani.save('images/gradient_descent_1.gif',writer="pillow")
-
+                ims.append([im,anno])
+            anno.remove()
+    if show_animation:
+        anno = plt.annotate('step:%d'%step, xy=(0.85, 0.9), xycoords='axes fraction',color='black')
+        plt.pause(0)
+    return X, Target
 
 def main():
     random.seed(10)
