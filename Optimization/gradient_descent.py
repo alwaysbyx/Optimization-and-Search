@@ -4,10 +4,9 @@ import matplotlib.pyplot as plt
 import  numpy.random as random
 import matplotlib.animation as animation
 
-show_animation = False
-save = True
-if save:
-    ims = []
+show_animation = True
+
+
 def compute_gradient(x,Q,b):
     return np.dot(Q,x) + b
 
@@ -16,9 +15,8 @@ def compute_target(x,Q,b):
     return target[0][0]
 
 def gradient_descent(n,Q,b):
-    rho = 1
-    x = 5 * random.randn(n,1)
-    x = np.array([[5],[-7.5]])
+    rho = 0.1
+    x = random.randn(n,1)
     X = [x]
     lr = 0.01
     g = compute_gradient(x, Q, b)
@@ -38,8 +36,6 @@ def gradient_descent(n,Q,b):
             anno = plt.annotate('step:%d'%step, xy=(0.85, 0.9), xycoords='axes fraction',color='black')
             plt.axis("equal")
             plt.pause(0.001)
-            if save:
-                ims.append([im,anno])
             anno.remove()
     if show_animation:
         anno = plt.annotate('step:%d'%step, xy=(0.85, 0.9), xycoords='axes fraction',color='black')

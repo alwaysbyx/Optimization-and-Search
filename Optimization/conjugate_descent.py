@@ -5,10 +5,8 @@ import  numpy.random as random
 import matplotlib.animation as animation
 from numpy.linalg import *
 
-show_animation = False
-save = False
-if save:
-    ims = []
+show_animation = True
+
 
 def compute_gradient(x,Q,b):
     g1 = np.dot(Q,x) + b
@@ -20,8 +18,7 @@ def compute_target(x,Q,b):
 
 def conjugate_descent(n,Q,b):
     rho = 0.1
-    x = 5 * random.randn(n,1)
-    
+    x = random.randn(n,1)
     g = compute_gradient(x, Q, b)
     d = -g
     target = compute_target(x, Q, b)
@@ -50,10 +47,9 @@ def conjugate_descent(n,Q,b):
         plt.pause(0)
     return X, Target
     
-
 def main():
     random.seed(10)
-    n = 2
+    n = 10
     Qsqrt = random.randn(n,n)
     b = random.randn(n,1)
     Q = np.dot(Qsqrt.T,Qsqrt)

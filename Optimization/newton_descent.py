@@ -5,10 +5,8 @@ import  numpy.random as random
 import matplotlib.animation as animation
 from numpy.linalg import *
 
-show_animation = False
-save = False
-if save:
-    ims = []
+show_animation = True
+
 def compute_gradient(x,Q,b):
     g1 = np.dot(Q,x) + b
     g2 = Q
@@ -20,8 +18,7 @@ def compute_target(x,Q,b):
 
 def newton_descent(n,Q,b):
     rho = 0.1
-    x = 3 * random.randn(n,1)
-    x = np.array([[5],[-7.5]])
+    x = random.randn(n,1)
     X = [x]
     g = compute_gradient(x, Q, b)
     target = compute_target(x, Q, b)
@@ -38,10 +35,9 @@ def newton_descent(n,Q,b):
             #plt.cla()
             im = plt.plot(Target,color='gray')
             anno = plt.annotate('step:%d'%step, xy=(0.85, 0.9), xycoords='axes fraction',color='black')
-            plt.axis("equal")
-            plt.pause(0.001)
-            if save:
-                ims.append([im,anno])
+            #plt.axis("equal")
+            plt.xlim(-0.1,2)
+            plt.pause(0.1)
             anno.remove()
     if show_animation:
         anno = plt.annotate('step:%d'%step, xy=(0.85, 0.9), xycoords='axes fraction',color='black')

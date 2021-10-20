@@ -10,7 +10,7 @@ import newton_descent
 def f(x1,x2,Q,b):
     return Q[0][0]*x1*x1 + Q[1][1]*x2*x2 + 2*Q[0][1]*x1*x2 + b[0][0]*x1 + b[1][0]*x2
 
-def main():
+def draw_direction():
     random.seed(1)
     n = 2
     Qsqrt = random.randn(n,n)
