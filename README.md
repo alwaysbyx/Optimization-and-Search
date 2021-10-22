@@ -42,6 +42,20 @@ $d^k = -[\nabla^2 f(x^k)]^{-1}\nabla f(x^k)$
 <img width="48%" src="images/newton_descent_2.gif"/>
 </div>
 
+# 2. Stochastic Search    
+Here we try to use stochastic search to solve TCP problems.  
+## Simulated Annealing    
+<div align=center>
+<img width="48%" src="images/SA.gif"/>
+<img width="48%" src="images/SA2.gif"/>
+</div>
+
+
+## Cross-Entropy Methods
+
+
+## Search Gradient
+
 
 # 3. Classical Search    
 
