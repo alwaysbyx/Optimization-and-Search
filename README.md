@@ -43,23 +43,46 @@ $d^k = -[\nabla^2 f(x^k)]^{-1}\nabla f(x^k)$
 </div>
 
 # 2. Stochastic Search    
-Here we try to use stochastic search to solve TCP problems.  
+Here we try to use stochastic search to solve TSP problems.  
 ## Simulated Annealing    
 <div align=center>
 <img width="48%" src="images/SA.gif"/>
-<img width="48%" src="images/SA2.gif"/>
+<img width="48%" src="images/simulated_annealing_1.gif"/>
 </div>
 
-
 ## Cross-Entropy Methods
+<div align=center>
+<img width="48%" src="images/cross_entropy.gif"/>
+<img width="48%" src="images/cross_entropy_1.gif"/>
+</div>
 
+## Search Gradient   
+Here try to find lowest temperature. Since for TSP, I cannot find $\nabla_\theta \log (p_\theta (z_i))$. If you have any ideas please be free to comment. Thanks!
 
-## Search Gradient
 
 
 # 3. Classical Search    
 
 ## A* search   
+## minimax search
+
+# 4.
+## Value iteration
+## Policy iteration
+
+# 5. 
+## Monte Carlo Policy Evaluation  
+## Temporal Difference Policy Evaluation  
+## Tabular Q learning
+
+# 6. 
+## Deep Q learning
+
+# 7. 
+## Monte Carlo Tree Search
+
+# 8.
+## DPLL
 
 
 

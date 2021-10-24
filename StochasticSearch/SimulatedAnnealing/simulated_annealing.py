@@ -5,11 +5,11 @@ import  numpy.random as random
 from scipy.spatial.distance import pdist
 import numpy as np
 """
-t0: temperature
-alpha: cooling coefficient here we use 'exponential annealing'
-n:  the number of nodes on the map
-x:  position x array with (N*1) size
-y:  position y array with (N*1) size
+t0: an int, temperature
+alpha: an int, cooling coefficient here we use 'exponential annealing'
+n:  an int, the number of nodes on the map
+x:  list N size: position x 
+y:  list N size: position y 
 """
 
 class simulated_annealing:
@@ -30,8 +30,8 @@ class simulated_annealing:
         r0 = permutation(self.n)
         f0 = self.get_function_value(r0)
         bestR = r0
-        bestF = f0
-        bestFOutlier = [bestF]
+        bestscore = f0
+        scores = [bestscore]
         T = self.t0
         for outite in range(self.outIte):
             for inite in range(self.inIte):
@@ -47,32 +47,35 @@ class simulated_annealing:
                     if random.random() <= p:
                         r0 = r1
                         f0 = f1
-                if f0 < bestF:
+                if f0 < bestscore:
                     bestR = r0
-                    bestF = f0
-            bestFOutlier.append(bestF)
-            print(f'ite={outite}, f_value = {bestF}\n')
+                    bestscore = f0
+            scores.append(bestscore)
+            print(f'ite={outite}, f_value = {bestscore}\n')
             T = self.alpha * T
             if self.show_animation:
                 plt.cla()
                 route = r0.copy()
                 route = np.append(route,r0[0])
-                #print(route)
-                #print(np.array(self.x)[route.astype(int)])
-                plt.plot(np.array(self.x)[route.astype(int)],np.array(self.y)[route.astype(int)],'o-', lw=2, color='orange')
-                plt.plot(self.x,self.y,'o',color='red')
-                a1 = plt.annotate(f'step:{outite}\n f:{round(bestF,2)}', xy=(0.85, 0.9), xycoords='axes fraction',color='black')
-                a2 = plt.annotate(f'T={self.t0}', xy=(0.5, 1.05), xycoords='axes fraction',color='black')
+                #plt.plot(np.array(self.x)[route.astype(int)],np.array(self.y)[route.astype(int)],'o-', lw=2, color='orange')
+                #plt.plot(self.x,self.y,'o',color='red')
+                plt.title('simulated_annealing')
+                plt.plot(scores)
+                a1 = plt.annotate(f'step:{outite}\n f:{round(bestscore,2)}', xy=(0.85, 0.9), xycoords='axes fraction',color='black')
+                #a2 = plt.annotate(f'T={self.t0}', xy=(0.5, 1.05), xycoords='axes fraction',color='black')
                 plt.axis('equal')
                 plt.pause(0.001)
                 if outite != self.outIte-1:
                     a1.remove()
-                    a2.remove()
+                    #a2.remove()
         if self.show_animation:
             plt.pause(0)
         
 
     def get_function_value(self,x0):
+        '''
+        here the function value (what we are going to minimize) is the total length of path
+        '''
         f = 0
         x = x0.copy()
         x = np.append(x,x[0])
@@ -139,7 +142,7 @@ def main():
     #plt.scatter(x,y)
     #plt.axis("equal")
     #plt.show()
-    sl = simulated_annealing(x, y, t0=0.5, alpha=0.99, show=True)
+    sl = simulated_annealing(x, y, t0=0.05, alpha=0.99, show=True)
     sl.search()
 
 if __name__ == '__main__':
