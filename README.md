@@ -2,6 +2,34 @@
 Implementation and visualization of optimization algorithms.  
 please add __MAthJax Plugin for Github__ to your browser.
 
+# Table of Contents
+- [Optimization-and-Search](#optimization-and-search)
+- [Table of Contents](#table-of-contents)
+- [1. Numerical Optimization](#1-numerical-optimization)
+  - [Gradient Descent](#gradient-descent)
+  - [Conjugate Descent](#conjugate-descent)
+  - [Newton Method](#newton-method)
+- [2. Stochastic Search](#2-stochastic-search)
+  - [Simulated Annealing](#simulated-annealing)
+  - [Cross-Entropy Methods](#cross-entropy-methods)
+  - [Search Gradient](#search-gradient)
+- [3. Classical Search](#3-classical-search)
+  - [A* search algorithm (A star search algorithm)](#a-search-algorithm-a-star-search-algorithm)
+  - [minimax search](#minimax-search)
+- [4.](#4)
+  - [Value iteration](#value-iteration)
+  - [Policy iteration](#policy-iteration)
+- [5.](#5)
+  - [Monte Carlo Policy Evaluation](#monte-carlo-policy-evaluation)
+  - [Temporal Difference Policy Evaluation](#temporal-difference-policy-evaluation)
+  - [Tabular Q learning](#tabular-q-learning)
+- [6.](#6)
+  - [Deep Q learning](#deep-q-learning)
+- [7.](#7)
+  - [Monte Carlo Tree Search](#monte-carlo-tree-search)
+- [8.](#8)
+  - [DPLL](#dpll)
+
 
 # 1. Numerical Optimization    
 
