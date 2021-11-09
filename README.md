@@ -66,7 +66,13 @@ Here trying to find lowest position. Since for TSP, I cannot find $\nabla_\theta
 
 # 3. Classical Search    
 
-## A* search   
+## A* search algorithm (A star search algorithm)   
+The code is writen according to the slide in CSE257, UCSD.
+<div align=center>
+<img width="48%" src="images/Astar_algorithm.jpg"/>
+<img width="48%" src="images/Astar.gif"/>
+</div>
+
 
 ## minimax search
 

@@ -17,6 +17,9 @@ class search_gradient:
         self.show_animation = show
 
     def search(self):
+        '''
+        search function to get optimal parameters
+        '''
         scores = []
         self.init_parameters()
         for ite in range(self.maxite):

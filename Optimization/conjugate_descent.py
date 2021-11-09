@@ -17,6 +17,15 @@ def compute_target(x,Q,b):
     return target[0][0]
 
 def conjugate_descent(n,Q,b):
+    '''
+    input: 
+        n: dimension
+        Q: Q matrix Rn*n
+        b: b vector Rn
+    output:
+        X: all searched x
+        target: optimal x
+    '''
     rho = 0.1
     x = random.randn(n,1)
     g = compute_gradient(x, Q, b)
