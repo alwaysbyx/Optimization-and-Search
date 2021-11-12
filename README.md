@@ -111,8 +111,9 @@ The code is writen according to the slide in CSE257, UCSD.
 <img width="48%" src="images/vl_algorithm.jpg"/>
 </div>
 The implementation here, the reward for all the tile is -0.04, and credit tile is 4, obstable tile is -5.  
-You can just press space key to change the [credit] or [obstable] choice and click left to add credit/obstable tile and remove them.
-We can see we get the optimal policy before our utility function converges.
+You can just press space key to change the [credit] or [obstable] choice and click left to add credit/obstable tile and remove them.  
+
+**We can see we get the optimal policy before our utility function converges.**
 <div align=center>
 <img width="48%" src="images/value_iteration.gif"/>
 </div>
