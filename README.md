@@ -16,7 +16,7 @@ please add __MAthJax Plugin for Github__ to your browser.
 - [3. Classical Search](#3-classical-search)
   - [A* search algorithm (A star search algorithm)](#a-search-algorithm-a-star-search-algorithm)
   - [minimax search](#minimax-search)
-- [4.](#4)
+- [4. Dynamic Programming](#4-dynamic-programming)
   - [Value iteration](#value-iteration)
   - [Policy iteration](#policy-iteration)
 - [5.](#5)
@@ -105,8 +105,18 @@ The code is writen according to the slide in CSE257, UCSD.
 ## minimax search
 
 
-# 4.
+# 4. Dynamic Programming
 ## Value iteration
+<div align=center>
+<img width="48%" src="images/vl_algorithm.jpg"/>
+</div>
+The implementation here, the reward for all the tile is -0.04, and credit tile is 4, obstable tile is -5.  
+You can just press space key to change the [credit] or [obstable] choice and click left to add credit/obstable tile and remove them.
+We can see we get the optimal policy before our utility function converges.
+<div align=center>
+<img width="48%" src="images/value_iteration.gif"/>
+</div>
+
 ## Policy iteration
 
 # 5. 
