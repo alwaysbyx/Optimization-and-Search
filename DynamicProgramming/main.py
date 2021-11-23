@@ -2,6 +2,7 @@ from numpy.core.numeric import Inf
 from numpy.lib.shape_base import tile
 import pygame
 import value_iteration
+import policy_iteration
 import time 
 import numpy as np
 
@@ -38,7 +39,11 @@ class FindPath:
         '''
         Using Value iteration or Policy Iteration to update value and policy
         '''
-        solver = value_iteration.value_iteration(self.rows, self.cols, self.ob, self.credit)
+        #solver = value_iteration.value_iteration(self.rows, self.cols, self.ob, self.credit)
+        
+        solver = policy_iteration.policy_iteration(self.rows, self.cols, self.ob, self.credit)
+        policy = np.array([[np.random.choice(4) for _ in range(self.cols)] for _ in range(self.rows)]) #0up,1down,2left,3right
+        
         utility = np.zeros((self.rows,self.cols))
         condition = True
         changeCredit = True
@@ -65,13 +70,28 @@ class FindPath:
                             self.ob.remove((i,j))
                         else:
                             self.ob.append((i,j))
-                    solver = value_iteration.value_iteration(self.rows, self.cols, self.ob, self.credit)
-            next_utility = solver.get_next_utility(utility)
-            self.print_matrix(utility = next_utility, wait = 0.05, changecredit=changeCredit)
-            utility = next_utility
+                    #solver = value_iteration.value_iteration(self.rows, self.cols, self.ob, self.credit)
+                    solver = policy_iteration.policy_iteration(self.rows, self.cols, self.ob, self.credit)
             
+            # value iteration
+            # next_utility = solver.get_next_utility(utility)
+            # self.print_matrix(utility = next_utility, wait = 0.05, changecredit=changeCredit, method = 1)
+            # utility = next_utility
 
-    def print_matrix(self, utility=None, wait=False, changecredit=True, method = 0):
+            # policy iteration
+            self.print_matrix(utility=utility, policy=policy, wait = 1, method = 1)
+            next_utility = solver.get_utility(utility, policy)
+            next_policy, unchanged = solver.get_next_policy(next_utility, policy)
+            utility = next_utility
+            policy = next_policy
+            if unchanged:
+                text = self.myfont.render('Find Best Policy', 1, BLACK)
+                self.surface.blit(text, (20,self.SURFACE_HEIGHT-30))
+                pygame.display.flip()
+                time.sleep(5)
+                
+
+    def print_matrix(self, utility=None, policy=None, wait=False, changecredit=True, method = 0):
         self.surface.fill(WHITE)
         label = self.labelfont.render(Methods[method], 1, BLACK)
         self.surface.blit(label, LABEL_POS)
@@ -98,12 +118,27 @@ class FindPath:
                     tile_y = ul_y_px + TEXT_Y_OFFSET_PX
                     pos = (tile_x, tile_y)
                     self.surface.blit(tile_utility, pos)
-        self.print_direction(utility)
+        if policy is not None:
+            self.print_direction_policy(policy)
+        else:
+            self.print_direction_utility(utility)
         pygame.display.flip()
         if wait:
             time.sleep(wait)
     
-    def print_direction(self,utility):
+    def print_direction_policy(self,policy):
+        '''
+        print direction of policy for each tile according to the policy
+        '''
+        for i in range(self.rows):
+            for j in range(self.cols):
+                ul_x_px = j*tile_size + BOARD_X_OFFSET_PX
+                ul_y_px = i*tile_size + BOARD_Y_OFFSET_PX
+                action = policy[i][j]
+                POS = self.get_triangular_pos(ul_x_px,ul_y_px)
+                pygame.draw.polygon(self.surface, BLACK, points=POS[action])
+
+    def print_direction_utility(self,utility):
         '''
         print direction of policy for each tile according to the utility
         '''
@@ -134,9 +169,6 @@ class FindPath:
         pos_right = [(x+tile_size-5-triangular_size*1.7,y+tile_size//2-triangular_size), (x+tile_size-5, y+tile_size//2), (x+tile_size-5-triangular_size*1.7,y+tile_size//2+triangular_size)]
         Pos = [pos_up, pos_down, pos_left, pos_right]
         return Pos
-    
-
-
     
 
 

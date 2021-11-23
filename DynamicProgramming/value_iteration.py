@@ -21,9 +21,13 @@ class value_iteration:
             self.reward_matrix[i][j] = 2
     
     def get_utility(self):
+        '''
+        main function
+        update utility function using Bellman Equation
+        '''
         self.init_rewards()
         count = 0
-        while count < 2:
+        while True:
             epi = 0
             count += 1
             for i in range(self.rows):
@@ -34,8 +38,6 @@ class value_iteration:
                     epi = max(abs(self.utility[i][j] - u_),epi)
             if epi < self.error*(1-self.discount)/self.discount:
                 return None
-            print(self.utility)
-            print(count)
     
     def get_next_utility(self, utility):
         self.init_rewards()

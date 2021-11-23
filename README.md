@@ -115,10 +115,17 @@ You can just press space key to change the [credit] or [obstable] choice and cli
 
 **We can see we get the optimal policy before our utility function converges.**
 <div align=center>
-<img width="48%" src="images/value_iteration.gif"/>
+<img width="40%" src="images/value_iteration.gif"/>
 </div>
 
 ## Policy iteration
+<div align=center>
+<img width="48%" src="images/policy_iteration_algorithm.jpg"/>
+</div>
+<div align=center>
+<img width="40%" src="images/policy_iteration.gif"/>
+</div>
+
 
 # 5. 
 ## Monte Carlo Policy Evaluation  
