@@ -129,8 +129,24 @@ You can just press space key to change the [credit] or [obstable] choice and cli
 
 # 5. 
 ## Monte Carlo Policy Evaluation  
+- Policy: $\pi (s_i) = a_i$
+- Trajectories: $s_0, s_1, s_2, .., s_T$
+- Rewards: $R(s_0) + \gamma R(s_1) + .. + \gamma^T(R(s_T))$
+
+Follow policy and get a lot of samples of trajectories, and estimate the expectation
+$$V^{\pi}(s_0) = \mathbb{E}_\pi [\sum_{i=0}^T\gamma^iR(s_i)]$$
 ## Temporal Difference Policy Evaluation  
+
+The difference between TD and MC method is that TD could update in every step and do not necessarily wait for a whole trajectory to generate.
+$$V^{\pi}(s_0) = \mathbb{E}_\pi [\sum_{i=0}^T\gamma^iR(s_i)]$$
+$$V^{\pi}(s) \leftarrow V^{\pi}(s) + \alpha(R(s)+\gamma V^{\pi}(s') - V^{\pi}(s))$$
+Note that the learning rate $\alpha$ should decrease with the number of visits to a state, in this case the method is guaranteed to converge to the true action values by the law of large numbers.
+
+
 ## Tabular Q learning
+
+**Off policy method**
+$$V(s) = \max_a (\mathbb{E}[R(s)+\gamma V(s'|s,a)])$$
 
 # 6. 
 ## Deep Q learning
