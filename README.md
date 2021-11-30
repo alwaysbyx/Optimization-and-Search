@@ -151,6 +151,16 @@ $$V(s) = \max_a (\mathbb{E}[R(s)+\gamma V(s'|s,a)])$$
 
 # 6. 
 ## Deep Q learning
+In this case I used Deep Q network to train a self-driving car. The environment is created by NeuralNine (github), thought he used NEAT package to train the car.   
+The demo is below: you can modify the network and train your own car!   
+Random case:
+<div align=center>
+<img width="70%" src="DeepQLearning/result/random.gif"/>
+</div>
+DQL case:
+<div align=center>
+<img width="70%" src="DeepQLearning/result/DQN.gif"/>
+</div>
 
 # 7. 
 ## Monte Carlo Tree Search
